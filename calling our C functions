@@ -1,0 +1,13 @@
+extern test
+extern exit
+section .data
+
+section .text
+global main
+main:
+
+        push 3          ; this is b
+        push 4          ;this is a 
+        call test       ; the return value a + b = 7 will be stored in eax so we use it as a exit code
+        push eax
+        call exit
