@@ -11,3 +11,4 @@ main:
         call printf
         push 0
         call exit
+ 
