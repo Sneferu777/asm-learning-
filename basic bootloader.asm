@@ -5,12 +5,12 @@ BITS 16
 
 
 main:
-        mov ax,0
-        mov ds, ax
-        mov es, ax
-        mov ss, ax
+        mov ax, 0
+        mov ds, ax     ; DS = 0 → memory access from segment 0
+        mov es, ax     ; ES = 0 → not used yet, but safe to init
+        mov ss, ax     ; SS = 0 → stack segment = 0
+        mov sp, 0x7C00 ; Stack Pointer → top of stack = 0x7C00
 
-        mov sp, 0x7c00
         mov si, os_boot_msg
         call print
         hlt             ; halts the CPU  until next hardware interrupt, after bootloader is done, nothing else is loaded so the CPU would
